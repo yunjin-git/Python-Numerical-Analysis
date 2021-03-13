@@ -27,9 +27,9 @@ def Bisect(xl,xu):
              eps = 0
 
 def f(x):
-    value = x-mt.exp(-x)
+    value = x-mt.exp(-x) # 구하고 싶은 방정식을 입력
     return value
             
             
            
-Bisect(-2,2)
+Bisect(-2,2) # 구간을 지정하여 이분법 사용시작
