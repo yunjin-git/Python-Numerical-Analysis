@@ -9,7 +9,7 @@ class Bisect : #Bisection Method
         self.xl = xl
         self.xu = xu
         self.tol = tol
-        self.equ = input("Please your Equation(Pythonic) : ")
+        self.equ = input("Please type your Equation(Pythonic) : ")
       
 
     def show(self):
@@ -22,26 +22,27 @@ class Bisect : #Bisection Method
         else : 
             rep = 0
             eps = 1
-
+            
             while eps > self.tol : 
                 rep = rep + 1 
-                xr = (self.xl + self.xu)/2
+                self.xr = (self.xl + self.xu)/2
+                
+                if not (self.xr == 0) :
+                    eps = abs((self.xl-self.xr)/self.xr)
+                
+                print('rep =',rep,'f(xm)=',self.fxm(),'xm=',self.xr,'eps=',format(eps,".4f"))
 
-                if not (xr == 0) :
-                    eps = abs((self.xl-xr)/xr)
-
-                if self.fn()*self.fu() < 0 :
-                 self.xl=xr
-                 self.xm=xr
+                if self.fn()*self.fxm() > 0 :
+                 self.xl=self.xr
+               
              
-                elif self.fu()*self.fn() > 0 :
-                 self.xu=xr
-                 self.xm=xr
+                elif self.fn()*self.fxm() < 0 :
+                 self.xu=self.xr
+                 
 
                 else : 
                  eps = 0
-
-                print('rep =',rep,'f(xm)=',self.fxm(),'xm=',xr,'eps=',format(eps,".4f"))
+        return self.xr
 
     def fu(self):
         x=self.xu
@@ -54,7 +55,7 @@ class Bisect : #Bisection Method
         return self.vall
     
     def fxm(self):
-        x=self.xm
+        x=self.xr
         self.valxm = eval(self.equ)
         return self.valxm
 
