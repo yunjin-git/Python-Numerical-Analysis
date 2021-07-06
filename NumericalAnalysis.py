@@ -10,7 +10,7 @@ class Bisect : #Bisection Method
         self.xl = xl
         self.xu = xu
         self.tol = tol
-        self.equ = input("Please type your Equation(Pythonic) : ")
+        self.equ = input("Please Enter your Equation(Pythonic) : ")
       
     def show(self):
         print("Equ : {}  xl : {}  xu: {} tolerance: {}".format(self.equ, self.xl, self.xu,self.tol))
@@ -65,8 +65,8 @@ class NR :  # Newton-Rhapson Method
     def __init__(self,xi, tol):
         self.xi = xi
         self.tol = tol
-        self.equ = input("Please type your Original Equation(Pythonic) : ")
-        self.equd = input("Please type your derivate Equation(Pythonic) : ")
+        self.equ = input("Please Enter your Original Equation(Pythonic) : ")
+        self.equd = input("Please Enter your defferent Equation(Pythonic) : ")
     def f(self):
         x=self.xi
         self.val = eval(self.equ)
